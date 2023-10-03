@@ -8,6 +8,7 @@ const Dashboard = () => {
       <div className='dashboardContainer flex'>
         {/* <Sidebar/>
         <Body/> */}
+        <h1>gosdok</h1>
       </div>
     </div>
   )
