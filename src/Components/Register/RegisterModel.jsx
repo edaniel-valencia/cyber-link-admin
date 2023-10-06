@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { API_ROUTES } from '../../Config/Api';
+import { _API } from '../../Config/Api';
 // import { useHistory  } from 'react-router-dom';
 
 
@@ -18,12 +18,6 @@ const RegisterModel = () => {
         setFormData({ ...formData, [fieldName]: value });
     };
 
-    const createUser = () => {
-        // No necesitas un bloque try/catch aquí
-        return axios.post(API_ROUTES.registroWeb, formData);
-        
-    };
-
     const clearForm = () => {
         setFormData({
           name: '',
@@ -36,7 +30,19 @@ const RegisterModel = () => {
 
       };
       
-    return { formData, updateFormData, createUser, clearForm };
+    const createUser = () => {
+        // No necesitas un bloque try/catch aquí
+        return axios.post(_API.registroWeb, formData);
+        
+    };
+
+    const handleOpenLink = () => {
+        const externalLink = 'https://www.google.com/search?q=utchat+app&sca_esv=570563447&rlz=1C1VDKB_esEC1023EC1023&sxsrf=AM9HkKmodhBUGbIPv0Svzp2HhEzxsalZTg%3A1696392001391&ei=QeMcZeSyF4e5qtsPqeSykA8&ved=0ahUKEwik15HVwNuBAxWHnGoFHSmyDPIQ4dUDCBA&uact=5&oq=utchat+app&gs_lp=Egxnd3Mtd2l6LXNlcnAiCnV0Y2hhdCBhcHAyCBAAGMsBGIAESO1CUABYnjxwBHgBkAEAmAGmAaABwQKqAQMwLjK4AQPIAQD4AQHCAgcQABgNGIAE4gMEGAAgQYgGAQ&sclient=gws-wiz-serp#ip=1';
+        window.open(externalLink, '_blank');
+      };
+    
+   
+    return { formData, updateFormData, createUser, clearForm, handleOpenLink };
 };
 
 export default RegisterModel;

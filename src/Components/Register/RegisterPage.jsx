@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../Assets/cyber-link.png';
 import publicidad from '../../Assets/gamer-1.jpeg';
 
-const RegisterView = ({ formData, updateFormData, handleCreateUser }) => {
+const RegisterPage = ({ formData, updateFormData, handleCreateUser }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -37,13 +37,14 @@ const RegisterView = ({ formData, updateFormData, handleCreateUser }) => {
           </div>
           <div className='footerDiv flex'>
             <span className='text'>Ya tengo una cuenta.</span>
-            <Link to={'/'}>
+            <Link to={'/login'}>
               <button className='btn'>Iniciar Sesión</button>
             </Link>
           </div>
         </div>
-
+       
         <div className='formDiv flex'>
+        
           <div className='headerDiv'>
             <img src={logo} alt="Logo" />
             <h3>Crear una cuenta</h3>
@@ -133,8 +134,11 @@ const RegisterView = ({ formData, updateFormData, handleCreateUser }) => {
               <IoMdLogIn className='icon' />
             </button>
 
-            <span className='forgotPassword'>
+            {/* <span className='forgotPassword'>
               Recuperar clave? <a href='#'> Clic aquí</a>
+            </span> */}
+            <span className='forgotPassword'>
+            <a href='/'>Ir al Inicio </a>
             </span>
 
           </form>
@@ -145,4 +149,4 @@ const RegisterView = ({ formData, updateFormData, handleCreateUser }) => {
   );
 };
 
-export default RegisterView;
+export default RegisterPage;
