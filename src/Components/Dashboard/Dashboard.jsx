@@ -1,14 +1,17 @@
 import React from 'react'
-// import Sidebar from '../Dashboard/Components/Sidebar-Section/Sidebar'
-// import Body from '../Dashboard/Components/Body-Section/Body'
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleClearLocalStorage = () => {
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
   return (
     <div className='dashboard flex'>
       <div className='dashboardContainer flex'>
-        {/* <Sidebar/>
-        <Body/> */}
-        <h1>gosdok</h1>
+        <button onClick={handleClearLocalStorage}><h1>Cerrar Sesión</h1></button>
       </div>
     </div>
   )
